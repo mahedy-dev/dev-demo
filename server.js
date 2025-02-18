@@ -7,6 +7,8 @@ const path = require('path');  // Add this for serving React build files
 
 dotenv.config();
 
+//implementing code change for memory allocation issue
+
 const app = express();
 const port = process.env.PORT || 5000;  // Change the port to 5000 for backend
 
