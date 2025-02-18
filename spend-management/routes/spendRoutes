@@ -1,0 +1,9 @@
+// routes/spendRoutes.js
+const express = require('express');
+const router = express.Router();
+const spendController = require('../controllers/spendController');
+
+router.get('/', spendController.getAllSpends);
+router.post('/', spendController.addSpend);
+
+module.exports = router;
