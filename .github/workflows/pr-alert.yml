@@ -15,29 +15,29 @@ jobs:
           PR_TITLE: ${{ github.event.pull_request.title }}
           PR_AUTHOR: ${{ github.event.pull_request.user.login }}
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{
-            "blocks": [
+          curl -X POST -H 'Content-type: application/json' --data "{
+            \"blocks\": [
               {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": "*New Pull Request Created* 🚀\n\n*Title:* $PR_TITLE\n*Author:* $PR_AUTHOR\n*URL:* <$PR_URL>\n\n"
+                \"type\": \"section\",
+                \"text\": {
+                  \"type\": \"mrkdwn\",
+                  \"text\": \"*New Pull Request Created* 🚀\\n\\n*Title:* ${PR_TITLE}\\n*Author:* ${PR_AUTHOR}\\n*URL:* <${PR_URL}>\\n\\n\"
                 }
               },
               {
-                "type": "actions",
-                "elements": [
+                \"type\": \"actions\",
+                \"elements\": [
                   {
-                    "type": "button",
-                    "text": {
-                      "type": "plain_text",
-                      "text": "Approve PR ✅"
+                    \"type\": \"button\",
+                    \"text\": {
+                      \"type\": \"plain_text\",
+                      \"text\": \"Approve PR ✅\"
                     },
-                    "style": "primary",
-                    "value": "approve_pr",
-                    "action_id": "approve_pr_action"
+                    \"style\": \"primary\",
+                    \"value\": \"approve_pr\",
+                    \"action_id\": \"approve_pr_action\"
                   }
                 ]
               }
             ]
-          }' $SLACK_WEBHOOK_URL
+          }" $SLACK_WEBHOOK_URL
